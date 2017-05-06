@@ -12,6 +12,10 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic,strong) NSMutableArray *imageArray;
+
+@property (nonatomic,strong) NSMutableArray *nameArray;
+
 
 @end
 

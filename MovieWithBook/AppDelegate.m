@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "TabBarViewController.h"
+
+
+//#import "cinemaDetailViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +20,28 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [DataBase sharedDataBase];
     // Override point for customization after application launch.
+    
+    _imageArray = [[NSMutableArray alloc] init];
+    
+    _nameArray = [[NSMutableArray alloc] init];
+    
+    TabBarViewController *vc = [[TabBarViewController alloc] init];
+    
+    UINavigationController *nav = [[UINavigationController alloc] init];
+    
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:[UIColor colorWithHex:primary_color_500_mask] forKey:NSForegroundColorAttributeName];
+    
+    nav.navigationBar.titleTextAttributes = dict;
+    
+    [nav pushViewController:vc animated:NO];
+    
+    self.window.rootViewController = nav;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

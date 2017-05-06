@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  personalView.h
 //  MovieWithBook
 //
 //  Created by 13110100307 on 16/9/5.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface personalView : UIView
 
+
+
+-(instancetype)init;
 
 @end
-

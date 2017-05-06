@@ -1,0 +1,196 @@
+//
+//  Constant.pch
+//  MovieWithBook
+//
+//  Created by 13110100307 on 16/9/5.
+//  Copyright © 2016年 13110100307. All rights reserved.
+//
+
+#ifndef Constant_pch
+#define Constant_pch
+
+#import "AFNetworking.h"
+#import "UIColor+Hex.h"
+#import "UIImageView+WebCache.h"
+#import "AppDelegate.h"
+#import "FMDB.h"
+#import "DataBase.h"
+#import "MJRefresh.h"
+#import "refreshActivityIndicatorView.h"
+
+
+
+#define main_movie_http @"https://api.douban.com/v2/movie"
+
+//正在热映
+#define topFilmHttp @"https://api.douban.com/v2/movie/in_theaters"
+
+//具体某条影片的具体内容+id
+#define movieHttp @"https://api.douban.com/v2/movie/subject/"
+
+//电影Top 20
+#define Top20Http @"https://api.douban.com/v2/movie/top250"
+
+//即将上映
+#define willAppearHttp @"https://api.douban.com/v2/movie/coming_soon"
+
+
+//猫眼即将上映推荐预告片
+#define maoyanWillAppearHttp @"https://api.maoyan.com/mmdb/movie/lp/list.json?uuid=6D400969C535305F68D5E861DBC5E18B65562F27ABEEE6DA1A5070BA9EA9A79F&utm_source=AppStore&utm_term=7.9&utm_content=6D400969C535305F68D5E861DBC5E18B65562F27ABEEE6DA1A5070BA9EA9A79F&version_name=7.9&userid=57588338&utm_medium=iphone&movieBundleVersion=100&utm_campaign=AmovieBmovieD200H0&__reqTraceID=EDF6443C-818C-4F0C-B2CB-AF6196019499&ci=65&client=iphone"
+
+//猫眼电影资讯
+#define maoyanMovieInfo @"https://api.maoyan.com/sns/v5/feed.json?uuid=6D400969C535305F68D5E861DBC5E18B65562F27ABEEE6DA1A5070BA9EA9A79F&utm_source=AppStore&utm_term=7.9&utm_content=6D400969C535305F68D5E861DBC5E18B65562F27ABEEE6DA1A5070BA9EA9A79F&version_name=7.9&userid=57588338&utm_medium=iphone&movieBundleVersion=100&utm_campaign=AmovieBmovieD200H0&__reqTraceID=C995D62A-12D7-44B6-934A-8B9361D50B84&offset=1&limit=30&ci=65&client=iphone"
+
+
+//offset 资讯偏移量，从哪里开始，limit是显示多少条资讯,feedType属性代表资讯类型，2代表话题、长评，7代表资讯信息
+//https://api.maoyan.com/sns/v5/feed.json?uuid=6D400969C535305F68D5E861DBC5E18B65562F27ABEEE6DA1A5070BA9EA9A79F&utm_source=AppStore&utm_term=7.9&utm_content=6D400969C535305F68D5E861DBC5E18B65562F27ABEEE6DA1A5070BA9EA9A79F&version_name=7.9&userid=57588338&utm_medium=iphone&movieBundleVersion=100&utm_campaign=AmovieBmovieD200H0&__reqTraceID=C995D62A-12D7-44B6-934A-8B9361D50B84&offset=0&limit=10&ci=65&client=iphone
+
+//猫眼资讯详情页面,中间拼接下就ok了
+
+#define maoyanInfoDetailPre  @"https://m.maoyan.com/"
+
+//拼接"information/" or "topic/"
+
+//拼接id
+#define maoyanInfoDetailAfter @"?_v_=yes"
+
+//猫眼资讯详情页面
+//https://m.maoyan.com/information/20333?_v_=yes  “20333”是targetId属性
+
+
+
+//热评
+#define hotComment @"https://api.maoyan.com/sns/news/20333/comments/hot.json"
+
+//热评论
+//https://api.maoyan.com/sns/news/20333/comments/hot.json?uuid=6D400969C535305F68D5E861DBC5E18B65562F27ABEEE6DA1A5070BA9EA9A79F&utm_source=AppStore&utm_term=7.9&utm_content=6D400969C535305F68D5E861DBC5E18B65562F27ABEEE6DA1A5070BA9EA9A79F&version_name=7.9&userid=57588338&utm_medium=iphone&movieBundleVersion=100&utm_campaign=AmovieBmovieD200H0&mpt_refer=MAYDiscoveryViewController&__reqTraceID=1A79DE1E-71F8-40FA-B71E-9F85055C11CB&client=iphone&ci=65   “20333”替换就好
+
+//普通评论
+#define normalComment @"https://api.maoyan.com/sns/news/20333/comments.json"
+
+//普通评论
+//https://api.maoyan.com/sns/news/20333/comments.json?uuid=6D400969C535305F68D5E861DBC5E18B65562F27ABEEE6DA1A5070BA9EA9A79F&utm_source=AppStore&utm_term=7.9&utm_content=6D400969C535305F68D5E861DBC5E18B65562F27ABEEE6DA1A5070BA9EA9A79F&version_name=7.9&userid=57588338&newsId=20333&utm_medium=iphone&movieBundleVersion=100&mpt_refer=MAYDiscoveryViewController&utm_campaign=AmovieBmovieD200H0&offset=0&__reqTraceID=C9856AF6-0D31-4F8E-88EE-E3B4ED154672&limit=10&client=iphone&ci=65
+
+//猫眼周边商城url
+#define shoppingUrl @"http://m.maoyan.com/store"
+
+//每天的key
+//"12c841861d864952a02b628ff39c128b"
+
+//影院列表（每天需要申请才能使用）
+//每天去这里申请（已弃用）
+//http://www.36wu.com/Service/Details/12?cid=32
+
+
+////豆瓣完整的电影院列表请求接口
+#define cinemaDataPreHttp @"https://movie.douban.com/j/cinema/movie/cinemas?&subject="//后跟id
+//
+#define cinemaDataToudayDateHttp @"&city=0&date="
+//
+#define cinemaDataLocationHttp @"&start=0&limit=30&latLng=38.89536773436207%2C121.5262766689036"
+
+
+//测试用的数据,因为无法使用定位
+//#define cinemaData @"https://movie.douban.com/j/cinema/movie/cinemas?&subject=25937854&city=0&date=2017-05-05&start=0&limit=30&latLng=38.895340727072885%2C121.52627575218338"
+
+//影院详细数据，加cinema id
+#define cinemaDetailWebViewUrl @"https://movie.douban.com/cinema/frodo/cinema/"
+//加影片id
+#define cineZhongUrl @"/schedule?subject="
+//加日期
+#define  cinemaDetailWebViewafterUrl @"&date="
+
+
+#pragma mark  屏幕尺寸
+#define ScreenWidth [[UIScreen mainScreen] bounds].size.width
+#define ScreenHeight [[UIScreen mainScreen] bounds].size.height
+
+#pragma mark - 颜色配置    需要使用扩展的color方法将16进制转化成rgb a格式
+#define primary_color_0 0xF7F7F7
+#define primary_color_50 0xF1EFF0
+#define primary_color_50_mask 0xF1EFF0  //alpha 0.6
+#define primary_color_100 0xF3C1C3
+#define primary_color_200 0xF0ABAE
+#define primary_color_300 0xED9498
+#define primary_color_400 0xED797E
+#define primary_color_500 0xEB5E64
+#define primary_color_500_mask 0xEB5E64  //alpha 0.95
+#define primary_color_600 0xEB4A51
+#define primary_color_700 0xDB3A41
+#define primary_color_800 0xC3292F
+#define primary_color_900 0xAA1D22
+
+#define primary_color_grey_50 0xFAFAFA
+#define primary_color_grey_100 0xF5F5F5
+#define primary_color_grey_200 0xEEEEEE
+#define primary_color_grey_300 0xE0E0E0
+#define primary_color_grey_400 0xBDBDBD
+#define primary_color_grey_500 0x9E9E9E
+#define primary_color_grey_600 0x757575
+#define primary_color_grey_700 0x616161
+#define primary_color_grey_800 0x424242
+#define primary_color_grey_900 0x212121
+#define primary_color_grey_1000 0x000000
+
+#define primary_color_orange_100 0xFFD5B5
+#define primary_color_orange_300 0xFFBD8A
+#define primary_color_orange_500 0xEF9E60
+#define primary_color_orange_700 0xD37C3A
+#define primary_color_orange_900 0xAD5B1C
+
+#define main_text_title_color_dark 0x000000
+#define main_text_title_color_light 0x8F8C8C
+#define main_text_title_color_lighter 0xBDBDBD
+#define main_text_title_color 0x585151
+
+#define layout_main_tab_background 0xECEAEB
+#define layout_channel_content_drawer_background 0xE3DDDD  //alpha 0.6
+
+#define app_msg_background 0xFFFFCC
+
+#define main_mask_lighter 0x000000  //alpha 0.0
+#define main_mask_light 0x000000 //alpha 0.26
+#define main_mask 0x000000 //alpha 0.6
+
+//蜜桃橙
+#define mitaoColor 0xF0FFF0
+
+//天蓝
+#define tianlanColor 0xF0FFFF
+
+//淡紫色
+#define danZiColor 0xDA70D6
+
+
+#pragma mark API
+
+//电影排行api的ID
+#define appID 25950
+
+//电影排行api的密匙
+#define serect 8b5bd01f9d584d6b8d95f82dabe6eda0
+
+//电影票房排行
+
+#define PAIHANGHttp @"https://route.showapi.com/578-6?showapi_appid=25950&showapi_sign=8b5bd01f9d584d6b8d95f82dabe6eda0"
+
+//电影排行api的网址
+//https://www.showapi.com/api/lookPoint/578
+
+
+#pragma mark picture
+
+//座位标识
+#define selectPicture @"seat.png"
+#define didSelectPicture @"seat2.png"
+#define selecttingPicture @"seat3.png"
+
+//发现频道
+#define Top20 @"hot.png";
+#define willMoviing @"right.png"
+#define goodMovie @"goodmovie.png"
+
+
+
+
+#endif /* Constant_pch */
