@@ -14,6 +14,14 @@
 
 @property (nonatomic,strong) UILabel *cinema_nameLabel;
 
+@property (nonatomic,strong) UILabel *beginTimeLabel;
+
+@property (nonatomic,strong) UILabel *movieTimelabel;
+
+@property (nonatomic,strong) UILabel *priceLabel;
+
+@property (nonatomic,strong)UIImageView *imageView;
+
 @property (nonatomic,strong) UIButton *selectButton;
 
 @property (nonatomic,strong) UIButton *didiSelectButton;
