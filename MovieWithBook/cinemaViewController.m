@@ -245,6 +245,13 @@
 
 
 -(void)getHttp {
+    
+    refreshActivityIndicatorView *refreshView = [[refreshActivityIndicatorView alloc] init];
+    
+    [self.view addSubview:refreshView];
+    
+    [refreshView startAnimating];
+    
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     AFHTTPSessionManager *manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
@@ -275,6 +282,8 @@
     }
     
     [manager POST:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [refreshView stopAnimating];
         
         _model = [[cinemaModel alloc] init];
         

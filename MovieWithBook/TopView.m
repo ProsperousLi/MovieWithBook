@@ -25,6 +25,29 @@
 
         [self refresh];
         
+        
+        //删除字符串步骤
+//        NSString *str = @"adcfhaioslhdaous1234ahiosfhios";
+//        
+//        NSString *removestr =@"1234";
+//        
+//        NSArray *rawFields = [str componentsSeparatedByString:@"1234"];
+//        
+//        NSMutableArray *fields = [NSMutableArray arrayWithArray:rawFields];
+//        
+//        //Remove '[' from the first field
+//        NSString* firstRawField = [rawFields[0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//        if([firstRawField hasPrefix:@"4"] && [firstRawField length] > 1){
+//            [fields replaceObjectAtIndex:0 withObject:[firstRawField substringFromIndex:1]];
+//        }
+//        
+//        //Remove ']' from the last field
+//        NSString* lastRawField = [rawFields[rawFields.count - 1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//        if([lastRawField hasSuffix:@"1"] && [lastRawField length] > 1){
+//            [fields replaceObjectAtIndex:(rawFields.count - 1) withObject:[lastRawField substringToIndex:[lastRawField length] - 1]];
+//        }
+        
+        
 
     }
     
@@ -187,6 +210,7 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@",[error localizedDescription]);
+        [refreshView stopAnimating];
     }];
 }
 

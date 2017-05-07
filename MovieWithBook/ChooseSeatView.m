@@ -25,6 +25,14 @@ static int seatIndex = 0;
         
         [self addSubview:self.typeLabel];
         
+        [self addSubview:self.beginTimeLabel];
+        
+        [self addSubview:self.movieTimelabel];
+        
+        [self addSubview:self.priceLabel];
+        
+        [self addSubview:self.imageView];
+        
         [self addSubview:self.seatImageView];
         
         [self addSubview:self.seatScrollView];
@@ -39,9 +47,13 @@ static int seatIndex = 0;
 -(UILabel *)cinema_nameLabel {
     if (!_cinema_nameLabel) {
         
-        _cinema_nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth/100, 64 +ScreenHeight/100, 3 * ScreenWidth/4, ScreenHeight/20)];
+        _cinema_nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth/50, 64 +ScreenHeight/100, 3 * ScreenWidth/4, ScreenHeight/20)];
         
         _cinema_nameLabel.backgroundColor = [UIColor clearColor];
+        
+        _cinema_nameLabel.textColor = [UIColor colorWithHex:main_mask_lighter];
+        
+        //_cinema_nameLabel.text = self.movieName;
     }
     return _cinema_nameLabel;
 }
@@ -49,13 +61,70 @@ static int seatIndex = 0;
 -(UILabel *)typeLabel {
     if (!_typeLabel) {
         
-        _typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth/100, 64 + ScreenHeight/10, ScreenWidth/2, ScreenHeight/20)];
+        _typeLabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth/50, 68 + ScreenHeight/30, ScreenWidth/2, ScreenHeight/25)];
         
         _typeLabel.backgroundColor = [UIColor clearColor];
+        
+        _typeLabel.textColor = [UIColor colorWithHex:main_text_title_color_lighter];
+        
+        _typeLabel.font = [UIFont systemFontOfSize:13];
+        
+        //_typeLabel.text = self.movieType;
     }
     
     return _typeLabel;
 }
+
+-(UILabel *)beginTimeLabel {
+    if (!_beginTimeLabel) {
+        _beginTimeLabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth/50, _typeLabel.frame.size.height+_typeLabel.frame.origin.y, ScreenWidth/2, ScreenHeight/25)];
+        _beginTimeLabel.backgroundColor = [UIColor clearColor];
+        
+        _beginTimeLabel.textColor = [UIColor colorWithHex:main_text_title_color_lighter];
+        
+        _beginTimeLabel.font = [UIFont systemFontOfSize:13];
+    }
+    
+    return _beginTimeLabel;
+}
+
+-(UILabel *)movieTimelabel {
+    if (!_movieTimelabel) {
+        _movieTimelabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth/50, _beginTimeLabel.frame.size.height+_beginTimeLabel.frame.origin.y, ScreenWidth/2, ScreenHeight/25)];
+        _movieTimelabel.backgroundColor = [UIColor clearColor];
+        
+        _movieTimelabel.textColor = [UIColor colorWithHex:main_text_title_color_lighter];
+        
+        _movieTimelabel.font = [UIFont systemFontOfSize:13];
+    }
+    
+    return _movieTimelabel;
+}
+
+-(UILabel *)priceLabel {
+    if (!_priceLabel) {
+        _priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth/50, _movieTimelabel.frame.size.height+_movieTimelabel.frame.origin.y, ScreenWidth/2, ScreenHeight/25)];
+        _priceLabel.backgroundColor = [UIColor clearColor];
+        
+        
+        _priceLabel.textColor = [UIColor colorWithHex:main_text_title_color_lighter];
+        
+        _priceLabel.font = [UIFont systemFontOfSize:13];
+        
+        
+    }
+    
+    return _priceLabel;
+}
+
+-(UIImageView *)imageView {
+    if (!_imageView) {
+        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenWidth/1.6, 64, ScreenWidth/4, ScreenHeight/5)];
+    }
+    
+    return _imageView;
+}
+
 
 -(UIView *)seatImageView {
     if (!_seatImageView) {
