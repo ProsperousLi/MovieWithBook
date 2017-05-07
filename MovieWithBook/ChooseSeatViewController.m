@@ -30,17 +30,9 @@
 
 
 -(void)reveiceData {
-
-    _chooseView.cinema_nameLabel.text = self.movieName;
+    _chooseView.cinema_nameLabel.text = _cinema_name;
     
-    _chooseView.typeLabel.text = [NSString stringWithFormat:@"类型:%@",self.movieType];
-    
-    _chooseView.beginTimeLabel.text =[NSString stringWithFormat:@"观影时间:%@",self.movieBeginTime];
-    _chooseView.movieTimelabel.text = [NSString stringWithFormat:@"时长:%@",self.movieTime];
-    
-    _chooseView.priceLabel.text = [NSString stringWithFormat:@"价格:%@元/张",self.moviePrice];
-    
-    [_chooseView.imageView sd_setImageWithURL:[NSURL URLWithString:self.movieImageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    _chooseView.typeLabel.text = _type;
 }
 
 
@@ -52,19 +44,21 @@
         UIAlertView *alertview = [[UIAlertView alloc] initWithTitle:@"提示" message:@"购买成功!" delegate:self cancelButtonTitle:nil otherButtonTitles:@"好的", nil];
         
         [alertview show];
+        
+        
 
         for (int i = 0; i < [_chooseView.piaoPaiArray count]; i++) {
             Tickets *ticke = [[Tickets alloc] init];
             
             //ticke.own_id = @(i);
             
-            ticke.movie = _movieName;
+            ticke.movie = _item_title;
             
-            ticke.cinemaName = self.navigationItem.title;
+            ticke.cinemaName = _cinema_name;
             
             ticke.numbserTickes = @(1);
             
-            ticke.price = _moviePrice;
+            ticke.price = @(arc4random() %(80 - 30 + 1) + 30);
             
             ticke.roomNumber = @(arc4random() %(10 - 1 + 1) + 1);
             

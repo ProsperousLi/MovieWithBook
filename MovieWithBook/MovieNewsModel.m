@@ -57,7 +57,7 @@
  
         self.timeArray = [dict valueForKeyPath:@"data.feeds.time"];
         
-        NSLog(@"maoyan :%@",self.feedType);
+        //NSLog(@"maoyan :%@",self.feedType);
     }
     
     return self;

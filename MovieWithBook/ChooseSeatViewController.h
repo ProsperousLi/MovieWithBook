@@ -20,35 +20,7 @@
 
 @property (nonatomic,strong) NSString *data;
 
-/**
- * 影片名称
- */
-@property (nonatomic,strong) NSString *movieName;
 
-/**
- * 开始时间
- */
-@property (nonatomic,strong)NSString *movieBeginTime;
-
-/**
- * 类型
- */
-@property (nonatomic,strong)NSString *movieType;
-
-/**
- * 时长
- */
-@property (nonatomic,strong)NSString *movieTime;
-
-/**
- * 价格
- */
-@property (nonatomic,strong)NSString* moviePrice;
-
-/**
- * 图片
- */
-@property (nonatomic,strong)NSString *movieImageUrl;
 
 @property (nonatomic,strong) NSString *type;
 

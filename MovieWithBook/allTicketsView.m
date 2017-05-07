@@ -50,9 +50,7 @@
     
     Tickets *ticket = [[Tickets alloc] init];
     
-    NSInteger lengthTicket = [_ticketArray count] -1;
-    //倒序打印
-    ticket = [_ticketArray objectAtIndex:lengthTicket - indexPath.row];
+    ticket = [_ticketArray objectAtIndex:indexPath.row];
     
     static NSString *Cellidentifier = @"Cell";
     
@@ -62,12 +60,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:Cellidentifier];
     }
-    else {
-        //解决cell复用的问题
-        while ([cell.contentView.subviews lastObject] !=nil) {
-            [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
-        }
-    }
+    
     cell.backgroundColor = [UIColor clearColor];
     
     UILabel *lable = [[UILabel alloc] initWithFrame:CGRectMake(ScreenWidth/100, ScreenHeight/100, ScreenWidth, ScreenHeight/20)];
